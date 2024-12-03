@@ -1,18 +1,12 @@
 const { Router } = require('express')
-const { handleGetName, handleGetProducts, handleCreateProduct } = require('../controllers/index')
-
+const { handleCreateTrip, handleGetTrips, handleUpdateTrip, handleDeleteTrip } = require('../controllers/index')
 
 const router = Router()
 
-router.get('/home', (req, res) => {
-    res.send('Hola intro express')
-})
- 
-router.get('/perfil',handleGetName)
+router.post("/viajes", handleCreateTrip)
+router.get("/viajes", handleGetTrips)
 
-router.get('/productos', handleGetProducts)
-
-router.post('/productos', handleCreateProduct)
-
+router.put("/viajes/:id", handleUpdateTrip)
+router.delete("/viajes/:id", handleDeleteTrip)
 
 module.exports = router;
